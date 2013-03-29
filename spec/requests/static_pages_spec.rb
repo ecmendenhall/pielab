@@ -2,55 +2,20 @@ require 'spec_helper'
 
 describe "StaticPages" do
 
+    subject { page }
+
     describe "Home page" do
+        before { visit root_path } 
 
-        it "should have the h1 'PieLab'" do
-            visit '/static_pages/home'
-            page.should have_selector('h1',
-                                      :text => 'PieLab')
-        end
-
-        it "should have the base title" do
-            visit '/static_pages/home'
-            page.should have_selector('title',
-                                      :text => 'PieLab')
-        end
-
-        it "should not have a custom page title" do
-            visit '/static_pages/home'
-            page.should_not have_selector('title',
-                                          :text => 'PieLab | Home')
-        end
-    end
-
-    describe "Help page" do
-
-        it "should have the h1 'PieLab Help'" do
-            visit '/static_pages/help'
-            page.should have_selector('h1',
-                                      :text => 'PieLab Help')
-        end
-
-        it "should have the title 'Help'" do
-            visit '/static_pages/help'
-            page.should have_selector('title',
-                                      :text => 'PieLab | Help')
-        end
+        it { should have_selector('title', text: full_title('')) }
+        it { should_not have_selector 'title', text: '| Home' }
     end
 
     describe "About page" do
+        before { visit about_path } 
 
-        it "should have the h1 'About PieLab'" do
-            visit '/static_pages/about'
-            page.should have_selector('h1',
-                                     :text => 'About PieLab')
-        end
+        it { should have_selector('title', text: full_title('About')) }
+        it { should have_selector 'h1', text: 'About PieLab' }
     end
-
-    it "should have the title 'About'" do
-            visit '/static_pages/about'
-            page.should have_selector('title',
-                                      :text => 'PieLab | About')
-        end
 
 end
