@@ -1,4 +1,5 @@
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
 /* colors */
 $pielab_orange: #B74A27;
@@ -11,6 +12,7 @@ html {
 
 body {
     padding-top: 60px;
+    font-family: Ubuntu;
 }
 
 section {
