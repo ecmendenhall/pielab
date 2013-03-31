@@ -40,10 +40,19 @@ describe "User pages" do
 
     describe "profile page" do
         let(:user) { FactoryGirl.create(:user) }
+        let!(:post1) { FactoryGirl.create(:post, user: user) }
+        let!(:post2) { FactoryGirl.create(:post, user: user) }
+
         before { visit user_path(user) }
 
         it { should have_selector('h1', text: user.name) }
         it { should have_selector('title', text: user.name) }
+
+        describe "posts" do
+            it { should have_content(post1.content) }
+            it { should have_content(post2.content) }
+            it { should have_content(user.posts.count) }
+        end
     end
 
     describe "edit" do

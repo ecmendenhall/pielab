@@ -9,4 +9,13 @@
             <%= @user.email %>
         </section>
     </aside>
+    <div class="span8">
+        <% if @user.posts.any? %>
+            <h2>Posts (<%= @user.posts.count %>)</h2>
+            <div class="posts">
+                <%= render @posts %>
+            </div>
+            <%= will_paginate @posts %>
+        <% end %>
+    </div>
 </div>
