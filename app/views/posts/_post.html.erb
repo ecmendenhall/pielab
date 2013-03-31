@@ -5,7 +5,7 @@
         by <%= link_to post.user.name, post.user %>
     </div>
     <div class="post-content">
-        <%= post.content %>
+        <%= markdown(post.content) %>
     </div>
     <% if current_user?(post.user) %>
         <div class="user-actions">
