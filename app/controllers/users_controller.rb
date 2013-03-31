@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_filter :signed_in_user, only: [:index, :edit, :update]
+    before_filter :signed_in_user, only: [:index, :edit, :update, :new, :create]
     before_filter :correct_user, only: [:edit, :update]
     before_filter :admin_user, only: :destroy
 
@@ -51,6 +51,10 @@ class UsersController < ApplicationController
             unless signed_in?
                 store_location
                 redirect_to signin_url, notice: "Please sign in." unless signed_in?
+            end
+            action = params[:action]
+            if action == 'new' || action == 'create'
+                redirect_to root_url
             end
         end
 
