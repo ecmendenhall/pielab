@@ -5,8 +5,7 @@ class ImagesController < ApplicationController
   def create
       @image = Image.new(params[:image])
       if @image.save
-          flash[:success] = "Image saved."
-          store_image_url(@image.image_file.url)
+          flash[:success] = render_to_string(:partial => 'saved_flash').html_safe
           redirect_back_or root_path 
       else
           flash[:error] = "Image could not be uploaded."
