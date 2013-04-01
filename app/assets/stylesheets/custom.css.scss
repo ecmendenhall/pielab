@@ -26,7 +26,7 @@ html {
 
 body {
     padding-top: 60px;
-    font-family: Ubuntu;
+    font-family: "Ubuntu", "Helvetica Neue", "Helvetica", sans-serif;
 }
 
 section {
@@ -234,7 +234,14 @@ aside {
   }
 }
 
-/* file input */
-#image_image_file { 
-    style: none; 
+#orange-header {
+    color: lighten($pielab_orange, 5%);
+    &:hover, &:active, &:visited { color: lighten($pielab_orange, 5%); }
+}
+    
+
+.about-pielab {
+    font-weight: 300;
+    padding-right: 20px;
+    margin-right: 30px;
 }
