@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def create
+      session[:image_url] = nil
       @post = current_user.posts.build(params[:post])
       if @post.save
           flash[:success] = "Post created!"
@@ -28,11 +29,14 @@ class PostsController < ApplicationController
   end
 
   def new
+      store_location
       @user = current_user
       @post = current_user.posts.new
+      @image = @post.images.new
   end
 
   def edit
+      store_location
       @post = Post.find(params[:id])
   end
 

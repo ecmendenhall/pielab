@@ -1,0 +1,12 @@
+<li class="span2">
+<a href=<%= image.image_file.url %> class="thumbnail">
+       <%= image_tag image.image_file.url(:small) %> 
+   </a>
+   <p>
+       <%= link_to image.image_file_file_name, image.image_file.url %>
+       <% if current_user.admin? %>
+           | <%= link_to "delete", image, method: :delete,
+                                            data: { confirm: "Are you sure?" } %>
+       <% end %>
+   </p>
+</li>

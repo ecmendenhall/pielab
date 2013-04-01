@@ -10,6 +10,7 @@ Pielab::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :posts
+  resources :images, :only => [:new, :create, :destroy, :index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

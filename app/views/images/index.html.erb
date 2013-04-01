@@ -1,0 +1,12 @@
+<% provide(:title, 'All images') %>
+<h1>All images</h1>
+
+<%= will_paginate %>
+
+  <ul class="thumbnails">
+    <%= render @images %>
+  </ul>
+
+  <%= link_to "+ Add image", new_image_path %>
+
+<%= will_paginate %>
