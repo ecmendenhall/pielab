@@ -1,9 +1,14 @@
-@import "bootstrap";
-@import url(http://fonts.googleapis.com/css?family=Ubuntu);
-
 /* colors */
+$pielab_blue: #5293ba;
 $pielab_orange: #B74A27;
+$pielab_tan: #DBC998;
 $grayMediumLight: #eaeaea;
+
+$linkColor: desaturate($pielab_blue, 20%);
+$btnPrimaryBackground: $pielab_blue;
+
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400);
 
 /* mixins */
 
@@ -51,6 +56,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: lighten($pielab_orange, 5%);
 }
 
 h2 {
@@ -200,9 +206,35 @@ input {
   color: $grayLight;
 }
 
+.blog-header {
+    margin-bottom: 60px;
+}
+
+.post {
+  margin-bottom: 60px;
+
+  .post-content {
+      margin-top: 30px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid $grayLighter;
+      font-weight: 300;
+      letter-spacing: .5px;
+      line-height: 1.2em;
+  }
+}
+
+.user-actions {
+    a { margin-right: 15px; }
+}
+
 aside {
   textarea {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+/* file input */
+#image_image_file { 
+    style: none; 
 }

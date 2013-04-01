@@ -45,6 +45,7 @@ class PostsController < ApplicationController
   end
 
   def index
+      store_location
       @posts = Post.paginate(page: params[:page])
   end
 
@@ -53,7 +54,7 @@ class PostsController < ApplicationController
     def correct_user
         @post = Post.find(params[:id])
         @user = @post.user
-        redirect_to(root_path) unless current_user?(@user)
+        redirect_to(root_path) unless current_user?(@user) || current_user.admin? 
     end
 
     def admin_user
